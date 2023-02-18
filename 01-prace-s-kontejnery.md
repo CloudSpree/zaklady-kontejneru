@@ -66,6 +66,10 @@ docker run nginx
 
 ## Spuštění commandu v kontejneru
 
+Při spuštění kontejneru můžeme změnit proces, který se spustí.
+Takže si můžeme pustit třeba `bash` a prohlédnout si filesystém
+daného obrazu.
+
 ```bash
 docker run -it nginx bash
 ```
