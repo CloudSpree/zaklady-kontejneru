@@ -84,6 +84,9 @@ Pokud chceme umožnit pouze čtení, tak do flagu přidáme `:ro`.
 
 ## Práce se sítěmi
 
+Kontejnery můžou být umístěny do stejného network namespace,
+což jim umožňuje spolu komunikovat.
+
 ```bash
 docker network create -d bridge test
 ```
@@ -108,3 +111,21 @@ docker run -it --rm --network test nginx bash
 curl http://172.19.0.2
 ```
 
+A nebo můžetem udělat ještě něco lepšího - doménová jména.
+
+```bash
+docker run --network test -d --network-alias stepan nginx
+```
+
+```bash
+docker run -it --rm --network test nginx bash
+```
+
+```bash
+curl stepan
+```
+
+Jen pozor - docker vám nebude bránit ve vytvoření různých
+kontejnerů se stejným network aliasem. Takže při nepozornosti
+se vám může stát, že se to chová divně a vy nevíte proč.
+True story.
