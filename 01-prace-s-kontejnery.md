@@ -2,13 +2,23 @@
 
 ## Daemon
 
+Kontejner může běžet na pozadí jako tzv. daemon. Prostě běžný
+proces, který ovšem nějak izolovaný.
+
 ```bash
 docker run -d nginx
 ```
 
+Takový proces můžeme najít pomocí `ps` a nebo přimo nástrojem
+docker, díky kterému dostaneme pouze seznam relevantních
+procesů
+
 ```bash
 docker ps
 ```
+
+Každý kontejner má svoje unikátní id, které pak můžeme používat
+při všech operacích - stop, kill, zobrazení logů atd.
 
 ```bash
 docker logs 71fcc6f96eb1
@@ -18,23 +28,37 @@ docker logs 71fcc6f96eb1
 docker kill 71fcc6f96eb1
 ```
 
+Po zabití kontejneru můžeme kontejner stále v sytému najít.
+
 ```bash
 docker ps -a
 ```
+
+Chceme-li se ho zbavit úplně, tak ho musíme smazat.
 
 ```bash
 docker rm 71fcc6f96eb1
 ```
 
+Když se nám práce s identifikátory nelíbí, tak si můžeme kontejnery
+dokonce pojmenovat.
+
 ```bash
 docker run --name nginx -d nginx
 ```
+
+Všechny další oprace jsou jinak stejné. Jen to jméno se lépe
+pamatuje.
 
 ```bash
 docker logs nginx
 ```
 
 ## Foreground
+
+Kontejnery můžeme nechat běžet i na popředí. To se hodí
+třeba v případě nějaké služby, kde si chceme instantně číst
+logy a nebo jí pravidelně vypínat a zapínat.
 
 ```bash
 docker run nginx
