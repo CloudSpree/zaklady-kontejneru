@@ -62,9 +62,9 @@ services:
   app:
     build: .
     image: vranystepan/helloworld
-  redis:
     ports:
-      - 6379:6379
+      - 8080:8080
+  redis:
     image: "redis:alpine"
 ```
 
