@@ -124,3 +124,7 @@ Soubor s pravidly si samozřejmě musíme přidat do volumes
 
 Když si otevřemu UI Prometheus, tak zanedlouho uvidíme pending
 alert.
+
+## monitoring Traefiku
+
+A teď si zkusíme přidat scrape config i pro traefik.
